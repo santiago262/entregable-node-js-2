@@ -1,0 +1,7 @@
+async function checkConnetion(){try{
+   await sequelize.authenticate();
+    console.log("successful connection")
+}catch(err){
+console.error("connection error: ",err)
+}
+}
