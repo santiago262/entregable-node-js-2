@@ -1,24 +1,26 @@
-// Import necessary modules
+// Importa los módulos necesarios
 const express = require('express');
 const morgan = require('morgan');
+const cors = require('cors'); // Importa el módulo CORS
 
-// Import router
+// Importa el enrutador
 const router = require("../router/user.router");
 
-// Initialize express app
+// Inicializa la aplicación express
 const app = express();
 
-// Middleware setup
-app.use(morgan("dev")); // Logging middleware for development environment
+// Middleware
+app.use(cors()); // Configura CORS
+app.use(morgan("dev")); // Middleware de registro para entorno de desarrollo
+app.use(express.json()); // Middleware para analizar solicitudes JSON
 
-
-// Route definitions
+// Definiciones de rutas
 app.get("/", (req, res) => {
     res.send('This is express');
 });
-app.use(express.json())
-// Router setup
+
+// Configuración del enrutador
 app.use("/users/v1", router);
 
-// Export the configured express app
+// Exporta la aplicación express configurada
 module.exports = app;

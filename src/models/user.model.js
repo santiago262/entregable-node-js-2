@@ -1,5 +1,5 @@
 const { Sequelize, DataTypes, Model } = require('sequelize');
-
+const {faker} = require('@faker-js/faker');
 require('dotenv').config();
 
 // Usar la variable de entorno que has definido
